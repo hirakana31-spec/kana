@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>うちの子プロフィール</title>
+<style>
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Hiragino Kaku Gothic ProN", sans-serif;
+    background: #fff8f3;
+    color: #555;
+}
+/* ヘッダー */
+header {
+    background: #f3b8c0;
+    text-align: center;
+    padding: 35px 20px;
+}
+header h1 {
+    margin: 0;
+    color: white;
+    font-size: 30px;
+}
+header p {
+    color: white;
+}
+/* 全体 */
+.container {
+    max-width: 700px;
+    margin: auto;
+    padding: 25px 18px;
+}
+/* 写真 */
+.photo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.photo img {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+/* 写真選択ボタン */
+.photo-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background: #e99ca8;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.photo-button input {
+    display: none;
+}
+/* カード */
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+}
+.card h2 {
+    color: #df8d9b;
+    margin-top: 0;
+}
+/* プロフィール */
+.info {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    padding: 13px 0;
+}
+.label {
+    width: 90px;
+    font-weight: bold;
+    color: #d98c8c;
+}
+/* 入力欄 */
+input[type="text"],
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+    background: #fffafa;
+}
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+/* フッター */
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #aaa;
+    font-size: 13px;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>🐾 My Pet Profile 🐾</h1>
+<p>大切な家族のプロフィール</p>
+</header>
+<div class="container">
+<!-- 写真 -->
+<div class="photo">
+<img id="petPhoto"
+src="https://placehold.co/260x260/f9dfe3/ffffff?text=PET"
+alt="ペットの写真">
+<br>
+<label class="photo-button">
+📷 写真を選ぶ
+<input
+type="file"
+accept="image/*"
+onchange="changePhoto(event)">
+</label>
+</div>
+<!-- 基本情報 -->
+<div class="card">
+<h2>🌷 Profile</h2>
+<div class="info">
+<div class="label">
+名前
+</div>
+<div>
+<input type="text" placeholder="例：モモ">
+</div>
+</div>
+<div class="info">
+<div class="label">
+誕生日
+</div>
+<div>
+<input type="text" placeholder="例：2020年4月15日">
+</div>
+</div>
+<div class="info">
+<div class="label">
+年齢
+</div>
+<div>
+<input type="text" placeholder="例：6歳">
+</div>
+</div>
+<div class="info">
+<div class="label">
+性格
+</div>
+<div>
+<input type="text" placeholder="例：甘えんぼうで元気！">
+</div>
+</div>
+</div>
+<!-- 好きなもの -->
+<div class="card">
+<h2>♡ Favorite</h2>
+<p>
+🍖 好きな食べ物
+</p>
+<input type="text" placeholder="ここに入力">
+<p>
+🧸 好きなおもちゃ
+</p>
+<input type="text" placeholder="ここに入力">
+<p>
+🌳 好きな場所
+</p>
+<input type="text" placeholder="ここに入力">
+<p>
+💕 好きなこと
+</p>
+<input type="text" placeholder="ここに入力">
+</div>
+<!-- メッセージ -->
+<div class="card">
+<h2>🐾 Message</h2>
+<textarea
+placeholder="この子との思い出などを自由に書いてね♡">
+</textarea>
+</div>
+</div>
+<footer>
+© My Pet Website 🐾
+</footer>
+<script>
+/* 写真を選んだら表示する */
+function changePhoto(event) {
+    const file = event.target.files[0];
+    if (!file) {
+        return;
+    }
+    const image = document.getElementById("petPhoto");
+    image.src = URL.createObjectURL(file);
+}
+</script>
+</body>
+</html>
